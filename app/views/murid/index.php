@@ -1,15 +1,20 @@
+
+
 <div class="container mt-5">
+
 <div class="row">
   <div class="col-6">
     <h3>Daftar Murid</h3>
+
+
+<ul class="list-group">
       <?php foreach( $data['murid'] as $murid) : ?>
-        <ul>
-          <li><?= $murid['nama']; ?></li>
-          <li><?= $murid['nip']; ?></li>
-          <li><?= $murid['email']; ?></li>
-          <li><?= $murid['jurusan']; ?></li>
-        </ul>
+        <li class="list-group-item"><?= $murid['nama']; ?></li>
         <?php endforeach; ?>  
+    </ul>
   </div>
 </div>
 </div>
+
+
+ 
