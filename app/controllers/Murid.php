@@ -12,4 +12,14 @@ class Murid extends Controller {
         $this->view('templates/footer');
 
     }
+
+    public function detail($id)
+    {
+        $data['judul'] = 'Detail Murid';
+        $data['murid'] = $this->model('murid_model')->getMuridById($id);
+        $this->view('templates/header', $data);
+        $this->view('murid/detail', $data);
+        $this->view('templates/footer');
+
+    }
 }
