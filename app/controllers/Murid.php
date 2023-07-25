@@ -26,6 +26,11 @@ class Murid extends Controller {
     public function tambah()
     {
         if( $this->model('Murid_model')->tambahDataMurid($_POST) > 0 ) {
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/murid');
             exit;
         }
