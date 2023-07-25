@@ -22,4 +22,12 @@ class Murid extends Controller {
         $this->view('templates/footer');
 
     }
+
+    public function tambah()
+    {
+        if( $this->model('Murid_model')->tambahDataMurid($_POST) > 0 ) {
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        }
+    }
 }

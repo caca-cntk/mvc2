@@ -23,6 +23,23 @@ class Murid_model {
         $this->db->bind('id', $id);
         return $this->db->single(); //single digunakan jika isinya cuma 1
     }
+
+    public function tambahDataMurid($data)
+    {
+        $query = "INSERT INTO murid
+                    VALUES
+                    ('', :nama, :nip, :email, :jurusan)";
+
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('nip', $data['nip']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('jurusan', $data['jurusan']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
         
     
 }
