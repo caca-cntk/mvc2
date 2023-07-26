@@ -18,8 +18,10 @@
     <h3>Daftar Murid</h3>
 <ul class="list-group">
       <?php foreach( $data['murid'] as $murid) : ?>
-        <li class="list-group-item d-flex justify-content-between align-items-center"><?= $murid['nama']; ?>
-        <a href="<?= BASEURL; ?>murid/detail/<?= $murid['id']; ?>" class="badge badge-primary">detail</a>
+        <li class="list-group-item"><?= $murid['nama']; ?>
+        <a href="<?= BASEURL; ?>murid/hapus/<?= $murid['id']; ?>" class="badge badge-danger float-right ml-1" onclick="return confirm('yakin?');">hapus</a>
+
+        <a href="<?= BASEURL; ?>murid/detail/<?= $murid['id']; ?>" class="badge badge-primary float-right ml-2">detail</a>
       </li>
         <?php endforeach; ?>  
     </ul>
