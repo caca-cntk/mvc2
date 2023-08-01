@@ -48,4 +48,23 @@ class Murid extends Controller {
             exit;
         }
     }
+
+    public function getUbah()
+    {
+        //meminta data murid yg kita pilih
+        echo json_encode($this->model('Murid_model')->getMuridById($_POST['id']));
+    }
+
+    public function ubah()
+    {
+        if( $this->model('Murid_model')->ubahDataMurid($_POST) > 0 ) {
+            Flasher::setFlash('berhasil', 'diubah', 'success');
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        }
+    }
 }
