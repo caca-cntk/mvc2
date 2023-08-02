@@ -72,6 +72,15 @@ class Murid_model {
 
         return $this->db->rowCount();
     }
+
+    public function cariDataMurid()
+    {
+        $keyword = $_POST['keyword']; //ambil dulu keyword yg dikirim,
+        $query = "SELECT * FROM murid WHERE nama LIKE :keyword"; //kita bikin querynya
+        $this->db->query($query); //kita jalankan querynya
+        $this->db->bind('keyword', "%$keyword%"); //kita binding keywordnya, diisi dengan %$keyword%
+        return $this->db->resultSet();
+    }
         
     
 }
